@@ -1,0 +1,27 @@
+.nav-button {
+  font-family: 'Offside', sans-serif;
+  border: 1px solid #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+/* 🔸 Efecto al pasar el mouse */
+.nav-button:hover {
+  background-color: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* 🔸 Efecto al hacer clic (mousedown) */
+.nav-button:active {
+  background-color: #fff;
+  color: #000;
+  transform: scale(0.97);
+  transition: all 0.1s ease;
+}
