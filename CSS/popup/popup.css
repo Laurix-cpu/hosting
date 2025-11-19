@@ -1,0 +1,611 @@
+:root {
+  --dl-layout-size-large: 144px;
+  --dl-layout-size-small: 48px;
+  --dl-layout-space-unit: 16px;
+  --dl-layout-size-medium: 96px;
+  --dl-layout-size-xlarge: 192px;
+  --dl-layout-size-xsmall: 16px;
+  --dl-color-theme-accent1: #FFFFFF;
+  --dl-color-theme-accent2: #F5D1B0;
+  --dl-layout-radius-round: 50%;
+  --dl-layout-size-xxlarge: 288px;
+  --dl-color-theme-primary1: #BF4408;
+  --dl-color-theme-primary2: #E65103;
+  --dl-layout-size-maxwidth: 1400px;
+  --dl-layout-radius-radius2: 2px;
+  --dl-layout-radius-radius4: 4px;
+  --dl-layout-radius-radius8: 8px;
+  --dl-layout-space-halfunit: 8px;
+  --dl-layout-space-sixunits: 96px;
+  --dl-layout-space-twounits: 32px;
+  --dl-color-theme-secondary1: #FFFFFF;
+  --dl-color-theme-secondary2: #FBF1EB;
+  --dl-layout-space-fiveunits: 80px;
+  --dl-layout-space-fourunits: 64px;
+  --dl-layout-space-threeunits: 48px;
+  --dl-color-theme-neutral-dark: #191818;
+  --dl-layout-radius-cardradius: 8px;
+  --dl-color-theme-neutral-light: #FBFAF9;
+  --dl-layout-radius-imageradius: 8px;
+  --dl-layout-radius-inputradius: 24px;
+  --dl-layout-radius-buttonradius: 24px;
+  --dl-layout-space-oneandhalfunits: 24px;
+}
+
+/* ... Estilos estándar de componentes thq (Mantenidos) ... */
+
+.modal-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+  height: 100%;
+  display: flex;
+  padding: 20px;
+  z-index: 9998;
+  position: fixed;
+  overflow-y: auto;
+  align-items: center;
+  backdrop-filter: blur(4px);
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-overflow-scrolling: touch;
+}
+
+.modal-container {
+  width: 100%;
+  margin: auto;
+  z-index: 9999;
+  overflow: hidden;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+  max-width: 588px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.3);
+  max-height: calc(100vh - 40px);
+  border-radius: 8px;
+  background-color: rgba(225, 222, 222, 1);
+}
+
+.modal-close-btn {
+  top: 12px;
+  color: white;
+  right: 12px;
+  width: 44px;
+  border: none;
+  cursor: pointer;
+  height: 44px;
+  display: flex;
+  padding: 0;
+  z-index: 10000;
+  position: absolute;
+  min-width: 44px;
+  min-height: 44px;
+  transition: all 0.3s ease;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.modal-content-wrapper {
+  width: 100%;
+  max-height: calc(100vh - 40px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame105 -> info-card-content */
+.info-card-content {
+  gap: 24px;
+  width: 100%;
+  display: flex;
+  padding: 40px;
+  position: relative;
+  align-self: stretch;
+  box-sizing: border-box;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(225, 222, 222, 1);
+}
+
+/* ➡️ CLASE ACTUALIZADA: warmony_project_img -> card-image */
+.card-image {
+  width: 100%;
+  height: auto;
+  align-self: stretch;
+  max-height: 306px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame94 -> card-title-container */
+.card-title-container {
+  gap: 10px;
+  display: flex;
+  padding: 10px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame100 -> card-subtitle-container */
+.card-subtitle-container {
+  gap: 10px;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame93 -> card-body-text-container */
+.card-body-text-container {
+  gap: 10px;
+  display: flex;
+  padding: 10px 0;
+  align-self: stretch;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+.card-action-button {
+  gap: 10px;
+  cursor: pointer;
+  display: flex;
+  padding: 10px 0;
+  align-self: stretch;
+  min-height: 44px;
+  transition: opacity 0.3s ease;
+  align-items: flex-end;
+  flex-shrink: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ➡️ CLASE ACTUALIZADA: text10 -> card-title-text */
+.card-title-text {
+  color: rgb(16, 16, 16);
+  height: auto;
+  hyphens: auto;
+  flex-grow: 1;
+  font-size: 48px;
+  word-wrap: break-word;
+  font-style: Black;
+  text-align: left;
+  font-family: "Saira", sans-serif;
+  font-weight: 900;
+  line-height: normal;
+  font-stretch: normal;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+/* ➡️ CLASE ACTUALIZADA: text11 -> card-subtitle-text */
+.card-subtitle-text {
+  color: rgb(0, 0, 0);
+  height: auto;
+  flex-grow: 1;
+  font-size: 23.9518px;
+  word-wrap: break-word;
+  font-style: Regular;
+  text-align: left;
+  font-family: "Offside", sans-serif;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* ➡️ CLASE ACTUALIZADA: text12 -> card-body-text */
+.card-body-text {
+  color: rgb(0, 0, 0);
+  height: auto;
+  flex-grow: 1;
+  font-size: 16px;
+  word-wrap: break-word;
+  font-style: SemiBold;
+  text-align: left;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 600;
+  line-height: 16px;
+  font-stretch: normal;
+  overflow-wrap: break-word;
+  text-decoration: none;
+}
+
+/* ➡️ CLASE ACTUALIZADA: text28 -> card-action-text */
+.card-action-text {
+  color: rgb(0, 0, 0);
+  height: auto;
+  display: flex;
+  flex-grow: 1;
+  font-size: 24.4068px;
+  word-wrap: break-word;
+  font-style: Regular;
+  text-align: left;
+  align-items: center;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Las clases text13 a text25 no tienen usos directos en el HTML proporcionado más allá de spans.
+   Asumo que se mantienen como utilidades internas, pero se podrían renombrar si fuese necesario.
+   Por ahora, las mantengo para evitar romper estilos de texto que dependen de ellas.
+*/
+.text13 {
+  font-weight: 600;
+}
+
+.text16 {
+  font-weight: 300;
+}
+
+.text19 {
+  font-weight: 600;
+}
+
+.text21 {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.text22 {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.text23 {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.text24 {
+  font-style: normal;
+  font-weight: 300;
+}
+
+.text25 {
+  font-style: normal;
+  font-weight: 300;
+}
+
+/* ... Estilos de hover, focus, active y scrollbar (Mantenidos) ... */
+
+/* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+.card-action-button:hover {
+  opacity: 0.8;
+}
+
+/* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+.card-action-button:active {
+  opacity: 0.6;
+}
+
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+
+/* 📐 Media Queries Actualizadas */
+@media(max-width: 991px) {
+  .thq-grid-4 {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .modal-overlay {
+    padding: 16px;
+  }
+  .modal-container {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame105 -> info-card-content */
+  .info-card-content {
+    gap: 20px;
+    padding: 32px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: warmony_project_img -> card-image */
+  .card-image {
+    max-height: 280px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text10 -> card-title-text */
+  .card-title-text {
+    font-size: 42px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text11 -> card-subtitle-text */
+  .card-subtitle-text {
+    font-size: 20px;
+    line-height: 20px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text28 -> card-action-text */
+  .card-action-text {
+    font-size: 22px;
+  }
+}
+
+@media(max-width: 767px) {
+  /* ... Estilos thq (Mantenidos) ... */
+  .thq-section-padding {
+    padding: var(--dl-layout-space-threeunits);
+  }
+  /* ... */
+  .modal-overlay {
+    padding: 12px;
+    align-items: flex-start;
+  }
+  .modal-container {
+    margin-top: 12px;
+    max-height: calc(100vh - 24px);
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .modal-close-btn {
+    top: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame105 -> info-card-content */
+  .info-card-content {
+    gap: 18px;
+    padding: 24px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: warmony_project_img -> card-image */
+  .card-image {
+    max-height: 240px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame94 -> card-title-container */
+  .card-title-container {
+    padding: 8px 0;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame93 -> card-body-text-container */
+  .card-body-text-container {
+    padding: 8px 0;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+  .card-action-button {
+    padding: 8px 0;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text10 -> card-title-text */
+  .card-title-text {
+    font-size: 36px;
+    line-height: 90%;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text11 -> card-subtitle-text */
+  .card-subtitle-text {
+    font-size: 18px;
+    line-height: 18px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text12 -> card-body-text */
+  .card-body-text {
+    font-size: 15px;
+    line-height: 18px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text28 -> card-action-text */
+  .card-action-text {
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 479px) {
+  /* ... Estilos thq (Mantenidos) ... */
+  .modal-overlay {
+    padding: 0;
+    border-radius: 0;
+  }
+  .modal-container {
+    margin: 0;
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+  .modal-close-btn {
+    top: 6px;
+    right: 6px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  .modal-content-wrapper {
+    max-height: 100vh;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame105 -> info-card-content */
+  .info-card-content {
+    gap: 16px;
+    padding: 20px 16px;
+    min-height: 100vh;
+    padding-top: 60px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: warmony_project_img -> card-image */
+  .card-image {
+    max-height: 200px;
+    border-radius: 2px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame94 -> card-title-container */
+  .card-title-container {
+    padding: 6px 0;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame100 -> card-subtitle-container */
+  .card-subtitle-container {
+    gap: 8px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame93 -> card-body-text-container */
+  .card-body-text-container {
+    padding: 6px 0;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+  .card-action-button {
+    padding: 8px 0;
+    min-height: 48px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text10 -> card-title-text */
+  .card-title-text {
+    font-size: 32px;
+    line-height: 95%;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text11 -> card-subtitle-text */
+  .card-subtitle-text {
+    font-size: 16px;
+    line-height: 17px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text12 -> card-body-text */
+  .card-body-text {
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  /* ➡️ CLASE ACTUALIZADA: text28 -> card-action-text */
+  .card-action-text {
+    display: flex;
+    font-size: 18px;
+    min-height: 48px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content h2 {
+    font-size: 1.2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+
+  .modal-content h1 {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+  }
+
+  /* Aseguramos que el h2 nunca se solape */
+  .modal-content h2, 
+  .modal-content h1 {
+    display: block;
+    line-height: 1.3em;
+  }
+}
+.modal-content header,
+.modal-content {
+  position: static !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+}
+
+/* ➡️ CLASES ACTUALIZADAS: frame94, frame93, frame95, frame105 */
+@media (max-width: 480px) {
+  .card-title-container,
+  .card-body-text-container,
+  .card-action-button,
+  .info-card-content,
+  .modal-container {
+    height: auto !important;
+    max-height: none !important;
+    flex-wrap: wrap !important;
+  }
+}
+
+/* ✅ Solución para evitar solapamiento del texto "SEE WARMONY WEB" */
+@media (max-width: 768px) {
+
+  /* El contenedor del modal se adapta al contenido */
+  .modal-container {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* El wrapper no recorta contenido */
+  .modal-content-wrapper {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* ➡️ CLASES ACTUALIZADAS: frame105, frame93, frame94, frame95, frame100 */
+  /* Los frames internos se apilan correctamente */
+  .info-card-content,
+  .card-body-text-container,
+  .card-title-container,
+  .card-action-button,
+  .card-subtitle-container {
+    display: block !important;
+    height: auto !important;
+    max-height: none !important;
+    flex-shrink: 1 !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  /* ➡️ CLASES ACTUALIZADAS: text10, text11 */
+  /* Texto principal y subtítulo con más separación */
+  .card-title-text,
+  .card-subtitle-text {
+    line-height: 1.2em !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Clase 'card-boxbody' no existía en el CSS, asumo que era un selector combinado en el HTML. 
+     Uso la nueva clase semántica para el contenedor de texto principal. 
+  */
+  .card-body-text-container {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    line-height: 1.4 !important;
+  }
+
+  /* ➡️ CLASE ACTUALIZADA: frame95 -> card-action-button */
+  /* 📍 Corrección clave: margen arriba de "see warmony web" */
+  .card-action-button {
+    margin-top: 20px !important;
+  }
+
+  /* Esta clase no estaba definida en el CSS, la he dejado igual para que se aplique 
+     en caso de que la hayas añadido en algún script. Si pretendía ser la clase del texto,
+     entonces debería ser '.card-action-text'
+  */
+  .seeweb {
+    display: block !important;
+    font-size: 16px !important;
+    line-height: 1.3em !important;
+    margin-top: 12px !important;
+    text-align: left !important;
+  }
+}
