@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Unit - Researchers</title>
+
+  <link rel="icon" type="image/png" href="IMAGENES/logo.jpg" sizes="32x32">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Jersey+25&family=DotGothic16&family=Offside&family=Doto:wght@900&family=VT323&display=swap"
+    rel="stylesheet">
+
+  <style>
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'VT323', monospace;
+      margin: 0;
+      padding: 2rem;
+      text-transform: uppercase;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    /* ---------------- HEADER (MISMO QUE About_RU.html) ---------------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 100;
+      text-align: left;
+    }
+
+    .logo-img {
+      height: 64px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+    }
+
+    .nav-button {
+      font-family: 'Offside', sans-serif;
+      border: 1px solid #fff;
+      padding: 6px 12px;
+      color: #fff;
+      text-decoration: none;
+      transition: .3s;
+      display: inline-block;
+    }
+
+    .nav-button:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .nav-button.active {
+      background: #E0E550;
+      color: #000;
+      border-color: #E0E550;
+    }
+
+    /* HAMBURGUESA IGUAL QUE About_RU */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 18px;
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+      top: 5px;
+      z-index: 1001;
+    }
+
+    .hamburger span {
+      height: 2px;
+      width: 100%;
+      background: #fff;
+    }
+
+    /* --------------------- MENÚ MÓVIL CORRECTO --------------------- */
+    @media (max-width: 1024px) {
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      nav ul.show {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        background: transparent;
+
+        width: 220px;
+        padding: 10px 0;
+        z-index: 1000;
+        gap: 12px;
+      }
+    }
+
+
+
+    /* ---------------- TITULOS ---------------- */
+    .logo-ru {
+      font-family: 'WDXL Lubrifont JP N', sans-serif;
+      font-size: 60px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .subtitle {
+      font-family: 'Jersey 25', sans-serif;
+      font-size: 40px;
+      text-align: center;
+      margin: 0;
+    }
+
+    .description {
+      font-family: 'Doto', sans-serif;
+      text-align: center;
+      font-size: 1.2rem;
+      margin: .5rem 0 1.5rem;
+    }
+
+    .separator {
+      border: 0;
+      border-top: 1px solid #fff;
+      margin: 1rem 0 3rem;
+    }
+
+    /* ---------------- GRID ---------------- */
+    .researchers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    @media(max-width:1024px) {
+      .researchers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:650px) {
+      .researchers-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------------- CARDS ---------------- */
+    .researcher-card {
+      background: #f2f2f2;
+      color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .researcher-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .spanishparagraph,
+    .englishparagraph {
+      text-transform: none;
+      font-size: 16px;
+      line-height: 1.35;
+      margin: 0;
+      color: #111;
+    }
+
+    /* ---------------- TRUNCADO ---------------- */
+    .text-short {
+      max-height: 95px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .text-short::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 45px;
+      background: linear-gradient(to bottom, rgba(242, 242, 242, 0) 0%, #f2f2f2 90%);
+    }
+
+    .see-more-toggle {
+      cursor: pointer;
+      font-family: 'Offside', sans-serif;
+      font-size: 16px;
+      color: #000;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <a href="index.html"><img src="IMAGENES/logoweb.png" class="logo-img"></a>
+
+      <nav>
+        <ul id="nav-menu">
+          <li><a href="researchers.html" class="nav-button active">Researchers</a></li>
+          <li><a href="index.html" class="nav-button">Projects</a></li>
+          <li><a href="About_RU.html" class="nav-button">About RU</a></li>
+        </ul>
+      </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+
+    <!-- TITULOS -->
+    <main>
+      <h1 class="logo-ru">RU</h1>
+      <h2 class="subtitle">Research Unit</h2>
+      <p class="description">FOR MEDIALAB–MATADERO</p>
+      <hr class="separator">
+
+
+      <!-- ---------------- GRID COMPLETO ---------------- -->
+      <section class="researchers-grid">
+
+        <!-- CARD 1 -->
+        <div class="researcher-card">
+          <img src="IMAGENES/grima.jpg">
+          <h3>GRIMA</h3>
+          <span>Fran Grima · Antropólogo visual y creador digital</span>
+
+          <p class="spanishparagraph text-short">
+            Fran Grima investiga el poder de la imagen como herramienta política y simbólica.
+            Su trabajo explora la propaganda, los memes y los rituales mediáticos contemporáneos
+            desde una mirada etnográfica y crítica.
+            Actualmente ejerce como jefe de campaña de Mariano José Nsué Obama mientras realiza
+            un documental sobre la República de San Rafael Nsue Nchama.
+            Paralelamente desarrolla Regular Human Behaviour, un diario visual que invita a reflexionar
+            sobre lo cotidiano y sus mitologías invisibles.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <p class="englishparagraph text-short">
+            Fran Grima is a visual anthropologist and digital creator based in GETAFE (Madrid).
+            His work explores propaganda, memes and contemporary media rituals.
+            He is currently acting as campaign manager for Mariano José Nsué Obama while directing a documentary on the
+            Republic of San Rafael Nsue Nchama.
+            At the same time, he develops Regular Human Behaviour, a visual diary that reflects on the everyday and its
+            invisible mythologies.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <a class="see-more">END OF DEATH_ RU#01 >></a>
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="researcher-card">
+          <img src="IMAGENES/ana.jpg">
+          <img src="IMAGENES/clara.jpg">
+          <h3>Ana Petra Moriyón & Clara Escalera</h3>
+          <span>Dúo creativo: arquitecta + diseñadora</span>
+
+          <p class="spanishparagraph text-short">
+            Tras casi una década navegando juntas las profundidades implacables de la corporación española,
+            han acabado simplemente quemadas.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <p class="englishparagraph text-short">
+            Ana Petra Moriyón and Clara Escalera are a creative duo who,
+            after nearly a decade navigating corporate Spain, have simply burnt out.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <a class="see-more">THE BUREAU OF SUNSETTING MATTERS_ RU#02 >></a>
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="researcher-card">
+          <img src="IMAGENES/elena.jpg">
+          <h3>Elena Zaghis</h3>
+          <span>Diseñadora especulativa · Directora de arte</span>
+
+          <p class="spanishparagraph text-short">
+            Se dedica a explorar líneas temporales alternativas en esta era de aceleración tecnológica.
+            Investiga mundos fabricados por sistemas algorítmicos y los climas emocionales que generan.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <p class="englishparagraph text-short">
+            Elena explores alternative timelines in an era of technological acceleration,
+            probing automated worlds and the vibes they generate.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <a class="see-more">EUROCORE_ RU#03 >></a>
+        </div>
+
+
+        <!-- CARD 4 -->
+        <div class="researcher-card">
+          <img src="IMAGENES/fermin.JPG">
+          <h3>Fermín Zabala</h3>
+          <span>Estudiante de Derecho y ADE</span>
+
+          <p class="spanishparagraph text-short">
+            Ha trabajado en proyectos orientados a involucrar a la juventud, con foco en diálogo político,
+            redes sociales, cultura Gen Z, relaciones internacionales y asuntos europeos.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <p class="englishparagraph text-short">
+            Law and business student focused on youth political projects, Gen Z culture and European affairs.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <a class="see-more">EUROCORE_ RU#03 >></a>
+        </div>
+
+
+        <!-- CARD 5 -->
+        <div class="researcher-card">
+          <img src="IMAGENES/Danya.jpg">
+          <h3>Danya Orlovsky</h3>
+          <span>Artista, investigador y diseñador residente en Alemania</span>
+
+          <p class="spanishparagraph text-short">
+            Su praxis fluctúa entre imágenes en movimiento, espacios virtuales e IA,
+            explorando lo siniestro, lo no humano y el misticismo.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <p class="englishparagraph text-short">
+            Artist and researcher working across AI, virtual spaces and the uncanny
+            through the lens of acceleration and systemic catastrophe.
+          </p>
+          <span class="see-more-toggle">Ver más</span>
+
+          <a class="see-more">WARMONY_ RU#04 >></a>
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- SCRIPT MENÚ -->
+  <script>
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+  </script>
+
+  <!-- VER MÁS -->
+  <script>
+    document.querySelectorAll(".see-more-toggle").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const p = btn.previousElementSibling;
+        p.classList.toggle("text-short");
+        btn.textContent = p.classList.contains("text-short") ? "Ver más" : "Ver menos";
+      });
+    });
+  </script>
+
+</body>
+
+</html>
